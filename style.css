@@ -1,0 +1,164 @@
+:root {
+  --linkColor: #146ebe;
+  --liWidth: 6rem;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: hsla(333, 100%, 53%, 1);
+  background: linear-gradient(
+    315deg,
+    hsla(333, 100%, 53%, 1) 0%,
+    hsla(33, 94%, 57%, 1) 100%
+  );
+  font-family: Quicksand, sans-serif;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+nav {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  margin: 2em;
+  box-shadow: 0.5em 0.5em 1em 0 #0006;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  padding: 0 1em;
+}
+
+li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.active {
+  color: var(--linkColor);
+}
+
+li,
+.indicator {
+  padding: 2em 1em;
+  width: var(--liWidth);
+}
+
+.indicator {
+  position: absolute;
+  transition: transform 350ms ease-in-out;
+}
+
+li:nth-child(1).active ~ .indicator {
+  transform: translateX(calc(var(--liWidth) * 0));
+}
+li:nth-child(2).active ~ .indicator {
+  transform: translateX(calc(var(--liWidth) * 1));
+}
+li:nth-child(3).active ~ .indicator {
+  transform: translateX(calc(var(--liWidth) * 2));
+}
+li:nth-child(4).active ~ .indicator {
+  transform: translateX(calc(var(--liWidth) * 3));
+}
+li:nth-child(5).active ~ .indicator {
+  transform: translateX(calc(var(--liWidth) * 4));
+}
+
+.slider .indicator {
+  background: #146ebe11;
+  border-top: 0.75em solid var(--linkColor);
+  border-bottom: 0.75em solid var(--linkColor);
+  border-radius: 0.5em;
+  height: 7.7em;
+  margin-top: -0.7em;
+}
+
+.magnify li {
+  height: 7rem;
+  justify-content: center;
+}
+
+.magnify i {
+  transition: font-size 350ms ease-in-out;
+}
+
+.magnify .active i {
+  font-size: 3rem;
+}
+
+.magnify .indicator {
+  height: 1em;
+  width: 1em;
+  background: var(--linkColor);
+  margin: 0;
+  padding: 0;
+  border-radius: 50%;
+  margin-top: 6.5rem;
+  box-shadow: 0.5em 0.5em 1em 0 #0006;
+  transform: translateX(2.5em);
+}
+
+.magnify li:nth-child(1).active ~ .indicator {
+  transform: translateX(calc(var(--liWidth) * 0 + 2.5em));
+}
+.magnify li:nth-child(2).active ~ .indicator {
+  transform: translateX(calc(var(--liWidth) * 1 + 2.5em));
+}
+.magnify li:nth-child(3).active ~ .indicator {
+  transform: translateX(calc(var(--liWidth) * 2 + 2.5em));
+}
+.magnify li:nth-child(4).active ~ .indicator {
+  transform: translateX(calc(var(--liWidth) * 3 + 2.5em));
+}
+.magnify li:nth-child(5).active ~ .indicator {
+  transform: translateX(calc(var(--liWidth) * 4 + 2.5em));
+}
+
+.jump li {
+  height: 5.5rem;
+}
+
+.jump span {
+  transform: translateY(-2em);
+  opacity: 0;
+}
+
+.jump span,
+.jump i {
+  transition: all 350ms ease-in-out;
+}
+
+.jump .active span {
+  transform: translateY(-0.25rem);
+  opacity: 1;
+}
+
+.jump .active i {
+  font-size: 2rem;
+  transform: translateY(-2.75rem);
+  z-index: 1;
+}
+
+.jump .indicator {
+  width: 6em;
+  height: 6em;
+  border-radius: 50%;
+  background-color: #fff;
+  opacity: 1;
+  margin-top: -2.5em;
+  border: 0.2em solid var(--linkColor);
+}
